@@ -6,7 +6,7 @@
     <div class="container">
       <h1 class="title">Photo Cards:</h1>
       <div :class="`grid-container cols-${columns}`">
-        <template v-for="i in 30">
+        <template v-for="(item, index) in 30" :key="index">
           <ItemCard :img-url="images[Math.floor(Math.random() * 2)]"
             :width-content="(windowWidth - ((columns + 1) * 15)) / columns" />
         </template>
