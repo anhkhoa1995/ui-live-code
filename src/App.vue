@@ -4,9 +4,7 @@
     <div class="cards-section">
       <h1 class="title">Photo Cards:</h1>
       <div :class="`grid-container`">
-        <template v-for="i in 30">
-          <ItemCard :img-url="images[Math.floor(Math.random() * 2)]" />
-        </template>
+        <ItemCard v-for="(item, index) in 30" :key="index" :img-url="images[Math.floor(Math.random() * 2)]" />
       </div>
     </div>
   </div>
@@ -34,7 +32,7 @@ const windowWidth = ref<number>(window.innerWidth);
 
 const handleResize = debounce(() => {
   windowWidth.value = window.innerWidth;
-}, 100);
+}, 50);
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
